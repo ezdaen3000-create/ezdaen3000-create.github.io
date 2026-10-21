@@ -1,425 +1,540 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>موقع عزالدين الشخصي</title>
-
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #080d1a, #172b4d);
-        color: white;<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>عزالدين | الموقع الشخصي</title>
-<meta name="description" content="الموقع الشخصي لعزالدين - برمجة وتكنولوجيا وصناعة الألعاب">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عزالدين | مطور ومبرمج</title>
+
+<meta name="description"
+content="الموقع الشخصي لعزالدين، مبرمج Python ومهتم بتطوير الألعاب والتكنولوجيا.">
+
 <style>
-:root{
-  --bg:#070b17; --card:rgba(255,255,255,.05); --border:rgba(0,229,255,.25);
-  --main:#00e5ff; --second:#7c4dff; --text:#e8eefc; --muted:#93a1c4;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;overflow-x:hidden}
-#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%}
-.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;z-index:-1;animation:float 14s ease-in-out infinite}
-.b1{width:340px;height:340px;background:var(--main);top:-80px;right:-80px}
-.b2{width:380px;height:380px;background:var(--second);bottom:-100px;left:-100px;animation-delay:-6s}
-@keyframes float{50%{transform:translate(40px,50px) scale(1.15)}}
-
-/* Navbar */
-nav{position:fixed;top:0;width:100%;z-index:50;background:rgba(7,11,23,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.nav-in{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 20px}
-.logo{font-weight:900;font-size:1.4rem;color:var(--main)}
-.links{display:flex;gap:22px;list-style:none}
-.links a{color:var(--text);text-decoration:none;font-weight:600;font-size:.95rem;transition:.3s}
-.links a:hover{color:var(--main)}
-.burger{display:none;background:none;border:0;color:var(--main);font-size:1.8rem;cursor:pointer}
-@media(max-width:760px){
-  .burger{display:block}
-  .links{position:absolute;top:100%;right:0;left:0;flex-direction:column;background:rgba(7,11,23,.97);padding:0;max-height:0;overflow:hidden;transition:.4s;text-align:center}
-  .links.open{max-height:420px;padding:15px 0;gap:14px}
+:root {
+    --bg: #070b17;
+    --card: #101a2d;
+    --cyan: #00e5ff;
+    --blue: #4169ff;
+    --text: #f4f7ff;
+    --muted: #aab7d0;
 }
 
-section{max-width:1100px;margin:auto;padding:90px 20px 30px}
-h2.title{font-size:2rem;font-weight:900;text-align:center;margin-bottom:8px}
-h2.title span{color:var(--main)}
-.sub{text-align:center;color:var(--muted);margin-bottom:35px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;backdrop-filter:blur(8px);transition:.35s}
-.card:hover{transform:translateY(-6px);box-shadow:0 0 28px rgba(0,229,255,.25)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.btn{display:inline-block;background:var(--main);color:#001018;padding:12px 30px;border-radius:14px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-family:inherit;font-size:1rem;transition:.3s}
-.btn:hover{transform:scale(1.06);box-shadow:0 0 25px var(--main)}
-.btn.ghost{background:transparent;color:var(--main);border:1px solid var(--main)}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Hero */
-#home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:110px}
-.hero{max-width:680px}
-.avatar{width:130px;height:130px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(135deg,var(--main),var(--second));display:flex;align-items:center;justify-content:center;font-size:3.6rem;font-weight:900;color:#fff;box-shadow:0 0 40px rgba(0,229,255,.5);animation:pulse 3s infinite}
-@keyframes pulse{50%{box-shadow:0 0 70px rgba(124,77,255,.7)}}
-.hero h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:900}
-.hero h1 span{background:linear-gradient(90deg,var(--main),var(--second));-webkit-background-clip:text;background-clip:text;color:transparent}
-.typed{color:var(--main);font-size:1.3rem;font-weight:700;min-height:2.2rem;margin:10px 0}
-.hero p{color:var(--muted);margin-bottom:25px}
-.hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+html {
+    scroll-behavior: smooth;
+}
 
-/* Stats */
-.stat{text-align:center}
-.stat b{font-size:2.3rem;color:var(--main);display:block}
-.stat small{color:var(--muted)}
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
 
-/* Skills */
-.skill{margin-bottom:18px}
-.skill-top{display:flex;justify-content:space-between;font-weight:600;margin-bottom:6px}
-.bar{height:10px;background:rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
-.fill{height:100%;width:0;border-radius:10px;background:linear-gradient(90deg,var(--main),var(--second));transition:width 1.6s ease}
+/* الخلفية */
 
-/* Cards */
-.icon{font-size:2.4rem;margin-bottom:8px}
-.card h3{color:var(--main);margin-bottom:6px;font-size:1.2rem}
-.card p{color:var(--muted);font-size:.95rem}
-.tag{display:inline-block;background:rgba(0,229,255,.12);color:var(--main);padding:2px 12px;border-radius:20px;font-size:.8rem;margin:10px 4px 0 0}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%,
+        rgba(0,229,255,.12), transparent 35%),
+        radial-gradient(circle at 85% 70%,
+        rgba(65,105,255,.15), transparent 35%);
+    z-index: -2;
+    pointer-events: none;
+}
 
-/* Timeline */
-.timeline{position:relative;max-width:700px;margin:auto;padding-right:30px}
-.timeline:before{content:"";position:absolute;right:8px;top:0;bottom:0;width:3px;background:linear-gradient(var(--main),var(--second))}
-.tl{position:relative;margin-bottom:22px}
-.tl:before{content:"";position:absolute;right:-30px;top:22px;width:17px;height:17px;border-radius:50%;background:var(--bg);border:3px solid var(--main)}
-.tl small{color:var(--second);font-weight:700}
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: .35;
+    background-image:
+        radial-gradient(#fff 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: starsMove 30s linear infinite;
+}
 
-/* Quote */
-.quote{text-align:center;font-size:1.3rem;font-weight:600}
-.quote small{display:block;color:var(--muted);margin-top:8px;font-size:.9rem}
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(48px); }
+}
 
-/* Game */
-.game{text-align:center}
-#gbox{position:relative;width:100%;max-width:420px;height:260px;margin:15px auto;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:crosshair}
-#target{position:absolute;font-size:2.3rem;cursor:pointer;user-select:none;transition:.15s}
-.score{font-weight:700;color:var(--main)}
+/* شريط التنقل */
 
-/* Form */
-form{display:grid;gap:14px;max-width:560px;margin:auto}
-input,textarea{width:100%;padding:13px 16px;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:12px;color:var(--text);font-family:inherit;font-size:1rem;outline:none}
-input:focus,textarea:focus{border-color:var(--main);box-shadow:0 0 12px rgba(0,229,255,.3)}
-.social{display:flex;justify-content:center;gap:14px;margin-top:25px;flex-wrap:wrap}
-.social a{padding:10px 20px;border:1px solid var(--border);border-radius:30px;color:var(--text);text-decoration:none;transition:.3s}
-.social a:hover{background:var(--main);color:#001018}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(7,11,23,.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0,229,255,.15);
+}
 
-footer{text-align:center;color:var(--muted);padding:40px 20px;margin-top:50px;border-top:1px solid var(--border)}
-#top{position:fixed;bottom:22px;left:22px;width:46px;height:46px;border-radius:50%;border:0;background:var(--main);color:#001018;font-size:1.4rem;cursor:pointer;display:none;z-index:60}
+nav {
+    max-width: 1100px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
 
-.reveal{opacity:0;transform:translateY(40px);transition:1s}
-.reveal.show{opacity:1;transform:none}
+.logo {
+    color: var(--cyan);
+    font-size: 23px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(0,229,255,.6);
+}
+
+nav ul {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--cyan);
+}
+
+/* القسم الرئيسي */
+
+.hero {
+    max-width: 1100px;
+    min-height: 80vh;
+    margin: auto;
+    padding: 90px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 18px;
+    border: 1px solid rgba(0,229,255,.4);
+    border-radius: 30px;
+    color: var(--cyan);
+    background: rgba(0,229,255,.06);
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 76px);
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.glow {
+    color: var(--cyan);
+    text-shadow:
+        0 0 10px rgba(0,229,255,.7),
+        0 0 35px rgba(0,229,255,.3);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(0,229,255,.5);
+    }
+    50% {
+        text-shadow:
+            0 0 20px rgba(0,229,255,.9),
+            0 0 45px rgba(0,229,255,.5);
+    }
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.primary {
+    background: var(--cyan);
+    color: #07111c;
+    box-shadow: 0 0 22px rgba(0,229,255,.2);
+}
+
+.secondary {
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+}
+
+/* الأقسام */
+
+section.content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 22px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 35px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 26px;
+    border-radius: 18px;
+    background: rgba(16,26,45,.85);
+    border: 1px solid rgba(0,229,255,.16);
+    transition: transform .3s, border-color .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--cyan);
+}
+
+.card .icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: var(--cyan);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.tag {
+    background: rgba(0,229,255,.08);
+    border: 1px solid rgba(0,229,255,.25);
+    color: var(--cyan);
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 14px;
+}
+
+/* قسم التواصل */
+
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    padding: 35px 20px;
+    background: rgba(16,26,45,.8);
+    border: 1px solid rgba(0,229,255,.2);
+    border-radius: 20px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin: 15px 0 25px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    border-top: 1px solid rgba(0,229,255,.15);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* الظهور أثناء التمرير */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s, transform .7s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* الهواتف */
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: 65px 18px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    section.content {
+        padding: 48px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
 </style>
 </head>
+
 <body>
-<canvas id="bg"></canvas>
-<div class="blob b1"></div><div class="blob b2"></div>
 
-<nav>
-  <div class="nav-in">
-    <div class="logo">&lt;عزالدين/&gt;</div>
-    <button class="burger" id="burger" aria-label="القائمة">☰</button>
-    <ul class="links" id="links">
-      <li><a href="#home">الرئيسية</a></li>
-      <li><a href="#about">من أنا</a></li>
-      <li><a href="#skills">المهارات</a></li>
-      <li><a href="#projects">المشاريع</a></li>
-      <li><a href="#journey">رحلتي</a></li>
-      <li><a href="#game">لعبة</a></li>
-      <li><a href="#contact">تواصل</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="stars"></div>
 
-<section id="home">
-  <div class="hero">
-    <div class="avatar">ع</div>
-    <h1>مرحبًا بكم 👋<br>أنا <span>عزالدين</span></h1>
-    <div class="typed" id="typed"></div>
-    <p>أهلاً بك في موقعي الشخصي. أحب البرمجة والتكنولوجيا وصناعة الألعاب، وأسعى إلى تطوير مشاريع إبداعية.</p>
-    <div class="btns">
-      <a class="btn" href="#projects">شاهد مشاريعي</a>
-      <a class="btn ghost" href="#contact">تواصل معي</a>
+<header>
+    <nav>
+        <div class="logo">عزالدين.dev</div>
+
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">من أنا</a></li>
+            <li><a href="#projects">مشاريعي</a></li>
+            <li><a href="#skills">مهاراتي</a></li>
+            <li><a href="#contact">تواصل</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="badge">مرحباً بك في عالمي الرقمي</span>
+
+        <h1>
+            أنا <span class="glow">عزالدين</span>
+        </h1>
+
+        <p>
+            مبرمج مهتم بلغة Python، وصناعة الألعاب،
+            وتطوير مواقع الويب، واستكشاف تقنيات المستقبل.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn primary">
+                اكتشف مشاريعي
+            </a>
+
+            <a href="#about" class="btn secondary">
+                تعرف عليّ
+            </a>
+        </div>
     </div>
-  </div>
 </section>
 
-<section id="about" class="reveal">
-  <h2 class="title">من <span>أنا</span></h2>
-  <p class="sub">نبذة سريعة عني</p>
-  <div class="card" style="max-width:760px;margin:auto 
-auto 30px;text-align:center">
-    <p style="color:var(--text);font-size:1.05rem">أنا عزالدين، شغوف بعالم البرمجة والتقنية. أتعلم لغة بايثون يومًا بعد يوم، وأحلم بصناعة ألعاب وتطبيقات ومواقع يستمتع بها الناس. أؤمن أن التعلم المستمر هو أقصر طريق للإبداع.</p>
-  </div>
-  <div class="grid">
-    <div class="card stat"><b data-n="10">0</b><small>مشاريع قيد التنفيذ</small></div>
-    <div class="card stat"><b data-n="5">0</b><small>تقنيات أتعلمها</small></div>
-    <div class="card stat"><b data-n="100">0</b><small>% شغف</small></div>
-    <div class="card stat"><b data-n="365">0</b><small>يوم من التعلم</small></div>
-  </div>
-</section>
+<section class="content reveal" id="about">
+    <h2 class="section-title">من أنا؟</h2>
 
-<section id="skills" class="reveal">
-  <h2 class="title">مهاراتي <span>التقنية</span></h2>
-  <p class="sub">ما أتقنه وما أتعلمه حاليًا</p>
-  <div class="card" style="max-width:760px;margin:auto">
-    <div class="skill"><div class="skill-top"><span>Python</span><span>70%</span></div><div class="bar"><div class="fill" data-w="70"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>HTML & CSS</span><span>65%</span></div><div class="bar"><div class="fill" data-w="65"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>JavaScript</span><span>45%</span></div><div class="bar"><div class="fill" data-w="45"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>تصميم الألعاب</span><span>50%</span></div><div class="bar"><div class="fill" data-w="50"></div></div></div>
-    <div class="skill"><div class="skill-top"><span>Git & GitHub</span><span>55%</span></div><div class="bar"><div class="fill" data-w="55"></div></div></div>
-  </div>
-</section>
-
-<section id="services" class="reveal">
-  <h2 class="title">ماذا <span>أقدّم</span></h2>
-  <p class="sub">مجالات أعمل عليها</p>
-  <div class="grid">
-    <div class="card"><div class="icon">💻</div><h3>تطوير المواقع</h3><p>بناء صفحات ويب عصرية وسريعة تعمل على كل الأجهزة.</p></div>
-    <div class="card"><div class="icon">🎮</div><h3>صناعة الألعاب</h3><p>تصميم ألعاب بسيطة وممتعة وتجربة أفكار جديدة.</p></div>
-    <div class="card"><div class="icon">🐍</div><h3>برمجة بايثون</h3><p>سكربتات وأدوات وبوتات تُسهّل المهام اليومية.</p></div>
-    <div class="card"><div class="icon">🎨</div><h3>التصميم</h3><p>واجهات جميلة وألوان متناسقة وتجربة مستخدم مريحة.</p></div>
-  </div>
-</section>
-
-<section id="projects" class="reveal">
-  <h2 class="title">مشاريعي</h2>
-  <p class="sub">بعض ما أعمل عليه (عدّلها لاحقًا بمشاريعك الحقيقية)</p>
-  <div class="grid">
-    <div class="card"><div class="icon">🌐</div><h3>موقعي الشخصي</h3><p>هذا الموقع الذي تتصفحه الآن، منشور على GitHub Pages.</p><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
-    <div class="card"><div class="icon">🕹️</div><h3>لعبة المتاهة</h3><p>لعبة بسيطة بتحديات متدرجة المستوى.</p><span class="tag">Python</span><span class="tag">Pygame</span></div>
-    <div class="card"><div class="icon">🤖</div><h3>بوت تلقائي</h3><p>بوت ينفّذ مهام متكررة ويوفر الوقت.</p><span class="tag">Python</span></div>
-    <div class="card"><div class="icon">📝</div><h3>تطبيق مهامّي</h3><p>قائمة مهام يومية مع حفظ تلقائي.</p><span class="tag">JavaScript</span></div>
-    <div class="card"><div class="icon">🧮</div><h3>آلة حاسبة ذكية</h3><p>حاسبة بتصميم أنيق وعمليات متقدمة.</p><span class="tag">JS</span></div>
-    <div class="card"><div class="icon">🚀</div><h3>مشروع قادم</h3><p>فكرة كبيرة قيد التخطيط، ترقبوها قريبًا!</p><span class="tag">قريبًا</span></div>
-  </div>
-</section>
-
-<section id="journey" class="reveal">
-  <h2 class="title">رحلتي في <span>التعلم</span></h2>
-  <p class="sub">خطواتي حتى الآن</p>
-  <div class="timeline">
-    <div class="card tl"><small>البداية</small><h3>اكتشاف البرمجة</h3><p>بدأت رحلتي بحب التقنية والفضول لمعرفة كيف تعمل الأشياء.</p></div>
-    <div class="card tl"><small>الخطوة الثانية</small><h3>تعلّم بايثون</h3><p>دخلت عالم بايثون وبدأت ببناء برامج صغيرة.</p></div>
-    <div class="card tl"><small>2026</small><h3>أول موقع على GitHub</h3><p>أنشأت موقعي الشخصي ونشرته على الإنترنت.</p></div>
-    <div class="card tl"><small>المستقبل</small><h3>صناعة الألعاب</h3><p>هدفي القادم بناء لعبتي الأولى ونشرها للجميع.</p></div>
-  </div>
-</section>
-
-<section id="quote" class="reveal">
-  <div class="card quote" id="quoteBox">
-    <span id="qText">"ابدأ من حيث أنت، استخدم ما لديك، افعل ما تستطيع."</span>
-    <small id="qAuth">— آرثر آش</small>
-    <br><button class="btn ghost" id="qBtn" style="margin-top:14px">اقتباس جديد 🔄</button>
-  </div>
-</section>
-
-<section id="game" class="reveal">
-  <h2 class="title">لعبة <span>سريعة</span></h2>
-  <p class="sub">اضغط على الهدف بأسرع ما يمكن!</p>
-  <div class="card game">
-    <div>النقاط: <span class="score" id="score">0</span> | أفضل نتيجة: <span class="score" id="best">0</span> | الوقت: <span class="score" id="time">20</span></div>
-    <div id="gbox"><div id="target" style="display:none">🎯</div></div>
-    <button class="btn" id="start">ابدأ اللعب</button>
-  </div>
-</section>
-
-<section id="contact" class="reveal">
-  <h2 class="title">تواصل <span>معي</span></h2>
-  <p class="sub">يسعدني سماع رأيك أو فكرتك</p>
-  <form id="form">
-    <input id="name" placeholder="اسمك" required>
-    <input id="email" type="email" placeholder="بريدك الإلكتروني" required>
-    <textarea id="msg" rows="5" placeholder="رسالتك..." required></textarea>
-    <button class="btn" type="submit">إرسال الرسالة ✉️</button>
-  </form>
-  <div class="social">
-    <a href="https://github.com/ezdaen3000-create" target="_blank" rel="noopener">GitHub</a>
-    <a href="#" target="_blank" rel="noopener">Instagram</a>
-    <a href="#" target="_blank" rel="noopener">YouTube</a>
-    <a href="#" target="_blank" rel="noopener">Telegram</a>
-  </div>
-</section>
-
-<footer>© 2026 — الموقع الشخصي لعزالدين | صُنع بـ 💙</footer>
-<button id="top" aria-label="للأعلى">↑</button>
-
-<script>
-// ===== Animated particle background =====
-const cv=document.getElementById('bg'),cx=cv.getContext('2d');
-let W,H,pts=[];
-function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;pts=Array.from({length:Math.min(80,Math.floor(W/14))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5}))}
-resize();addEventListener('resize',resize);
-(function draw(){
-  cx.clearRect(0,0,W,H);
-  pts.forEach((p,i)=>{
-    p.x+=p.vx;p.y+=p.vy;
-    if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-    cx.fillStyle='rgba(0,229,255,.8)';cx.beginPath();cx.arc(p.x,p.y,1.8,0,7);cx.fill();
-    for(let j=i+1;j<pts.length;j++){
-      const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);
-      if(d<120){cx.strokeStyle='rgba(124,77,255,'+(1-d/120)*.4+')';cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}
-    }
-  });
-  requestAnimationFrame(draw);
-})();
-
-// ===== Navbar =====
-const links=document.getElementById('links');
-document.getElementById('burger').onclick=()=>links.classList.toggle('open');
-links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
-
-// ===== Typing effect =====
-const words=['مبرمج مبتدئ 🐍','صانع ألعاب 🎮','مطوّر مواقع 💻','محب للتقنية 🚀'];
-let wi=0,ci=0,del=false;const typed=document.getElementById('typed');
-(function type(){
-  const w=words[wi];
-  typed.textContent=w.slice(0,ci);
-  if(!del&&ci<w.length)ci++;
-  else if(!del){del=true;return setTimeout(type,1200)}
-  else if(del&&ci>0)ci--;
-  else{del=false;wi=(wi+1)%words.length}
-  setTimeout(type,del?50:110);
-})();
-
-// ===== Reveal on scroll + skill bars + counters =====
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;
-  e.target.classList.add('show');
-  e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
-  e.target.querySelectorAll('[data-n]').forEach(c=>{
-    if(c.dataset.done)return;c.dataset.done=1;
-    const n=+c.dataset.n;let v=0;const s=Math.max(1,Math.ceil(n/60));
-    const t=setInterval(()=>{v+=s;if(v>=n){v=n;clearInterval(t)}c.textContent=v},25);
-  });
-}),{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-// ===== Back to top =====
-const top=document.getElementById('top');
-addEventListener('scroll',()=>top.style.display=scrollY>400?'block':'none');
-top.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-
-// ===== Quotes =====
-const quotes=[
-  ['ابدأ من حيث أنت، استخدم ما لديك، افعل ما تستطيع.','آرثر آش'],
-  ['البرمجة هي فن تحويل الأفكار إلى واقع.','حكمة تقنية'],
-  ['الخطأ هو أول خطوة نحو الإتقان.','حكمة'],
-  ['لا تنتظر الفرصة، اصنعها بنفسك.','حكمة'],
-  ['كل خبير كان يومًا مبتدئًا.','حكمة']
-];
-document.getElementById('qBtn').onclick=()=>{
-  const q=quotes[Math.floor(Math.random()*quotes.length)];
-  document.getElementById('qText').textContent='"'+q[0]+'"';
-  document.getElementById('qAuth').textContent='— '+q[1];
-};
-
-// ===== Mini game =====
-const box=document.getElementById('gbox'),tg=document.getElementById('target');
-let score=0,time=20,timer=null,best=+(localStorage.getItem('best')||0);
-document.getElementById('best').textContent=best;
-function move(){
-  tg.style.left=Math.random()*(box.clientWidth-45)+'px';
-  tg.style.top=Math.random()*(box.clientHeight-45)+'px';
-}
-tg.onclick=e=>{e.stopPropagation();score++;document.getElementById('score').textContent=score;move()};
-document.getElementById('start').onclick=()=>{
-  clearInterval(timer);score=0;time=20;
-  document.getElementById('score').textContent=0;document.getElementById('time').textContent=time;
-  tg.style.display='block';move();
-  timer=setInterval(()=>{
-    time--;document.getElementById('time').textContent=time;
-    if(time<=0){
-      clearInterval(timer);tg.style.display='none';
-      if(score>best){best=score;localStorage.setItem('best',best);document.getElementById('best').textContent=best}
-      alert('انتهى الوقت! نقاطك: '+score);
-    }
-  },1000);
-};
-
-// ===== Contact form (opens email app) =====
-document.getElementById('form').onsubmit=e=>{
-  e.preventDefault();
-  const n=document.getElementById('name').value,m=document.getElementById('email').value,t=document.getElementById('msg').value;
-  location.href='mailto:YOUR_EMAIL@example.com?subject='+encodeURIComponent('رسالة من '+n)+'&body='+encodeURIComponent(t+'\n\nالبريد: '+m);
-};
-</script>
-</body>
-</html>
-
-        text-align: center;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .card {
-        width: 85%;
-        max-width: 500px;
-        padding: 30px 20px;
-        border: 1px solid #00d9ff;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.06);
-        box-shadow: 0 0 25px rgba(0, 217, 255, 0.2);
-    }
-
-    h1 {
-        color: #00d9ff;
-        font-size: 32px;
-    }
-
-    p {
-        line-height: 1.9;
-        font-size: 18px;
-    }
-
-    .button {
-        display: inline-block;
-        padding: 12px 24px;
-        background: #00d9ff;
-        color: #08111f;
-        text-decoration: none;
-        border-radius: 10px;
-        font-weight: bold;
-        margin-top: 12px;
-    }
-
-    footer {
-        margin-top: 25px;
-        color: #b8c7dc;
-        font-size: 14px;
-    }
-</style>
-
-</head><body><div class="card">
-    <h1>مرحبًا بكم 👋</h1>
-
-    <h2>أنا عزالدين</h2>
-
-    <p>
-        أهلاً بك في موقعي الشخصي.
-        <br>
-        أحب البرمجة والتكنولوجيا وصناعة الألعاب.
-        <br>
-        أتعلم بايثون وأسعى إلى تطوير مشروعات إبداعية.
+    <p class="section-subtitle">
+        شغف بالتكنولوجيا، وفكرة تتحول إلى مشروع.
     </p>
 
-    <a class="button"
-       href="https://github.com/"
-       target="_blank"
-       rel="noopener noreferrer">
-        اكتشف عالم البرمجة
-    </a>
+    <div class="card">
+        <p>
+            أنا عزالدين، مهتم بالبرمجة وتطوير البرمجيات.
+            أعمل على تعلم أدوات جديدة، وبناء مشاريع عملية،
+            وتطوير أفكار تجمع بين الإبداع والتكنولوجيا.
+            هدفي هو إنشاء تطبيقات وألعاب ومواقع مفيدة ومميزة.
+        </p>
+    </div>
+</section>
 
-    <footer>
-        © 2026 — الموقع الشخصي لعزالدين
-    </footer>
-</div>
+<section class="content reveal" id="projects">
+    <h2 class="section-title">مشاريعي</h2>
+
+    <p class="section-subtitle">
+        مساحة لعرض المشاريع التي أعمل عليها.
+    </p>
+
+    <div class="grid">
+
+        <article class="card">
+            <div class="icon">🐍</div>
+            <h3>مشاريع Python</h3>
+            <p>
+                تطبيقات وأدوات برمجية أطورها باستخدام
+                لغة Python.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🎮</div>
+            <h3>تطوير الألعاب</h3>
+            <p>
+                أفكار ألعاب تفاعلية ومشاريع أعمل
+                على تحسينها وتطويرها.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🌐</div>
+            <h3>مواقع الويب</h3>
+            <p>
+                تصميم صفحات ومواقع ويب حديثة
+                ومتوافقة مع الهواتف.
+            </p>
+        </article>
+
+        <article class="card">
+            <div class="icon">🤖</div>
+            <h3>التقنيات المستقبلية</h3>
+            <p>
+                استكشاف البرمجة والأتمتة والأفكار
+                التقنية الجديدة.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+<section class="content reveal" id="skills">
+    <h2 class="section-title">مجالات اهتمامي</h2>
+
+    <p class="section-subtitle">
+        تقنيات أتعلمها وأستخدمها في مشاريعي.
+    </p>
+
+    <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">تطوير الألعاب</span>
+        <span class="tag">تصميم الواجهات</span>
+    </div>
+</section>
+
+<section class="content reveal" id="contact">
+    <h2 class="section-title">لنتواصل</h2>
+
+    <div class="contact-box">
+        <div class="icon">✉️</div>
+
+        <h3>هل لديك فكرة لمشروع؟</h3>
+
+        <p>
+            يمكنك التواصل معي عبر البريد الإلكتروني
+            بعد إضافة عنوان بريدك إلى الزر أدناه.
+        </p>
+
+        <a
+            href="mailto:YOUR_EMAIL@example.com"
+            class="btn primary">
+            راسلني عبر البريد
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>
+        © <span id="year"></span>
+        عزالدين | جميع الحقوق محفوظة
+    </p>
+
+    <p>صُنع بشغف باستخدام HTML وCSS وJavaScript</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    { threshold: 0.12 }
+);
+
+document.querySelectorAll(".reveal").forEach((element) => {
+    observer.observe(element);
+});
+</script>
 
 </body>
 </html>
